@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('users', 'UsersController');
+Route::resource('transactions', 'TransactionsController');
+Route::resource('wallets', 'WalletsController');
+Route::resource('montly_budgets', 'MonthlyBudgetsController');
