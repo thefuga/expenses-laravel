@@ -15,7 +15,7 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
 	    $table->bigIncrements('id');
-	    $table->string('type'); # Expense or Income
+	    $table->string('type', 32); # Expense or Income
 	    $table->date('date')->nullable();
 	    $table->unsignedBigInteger('ammount'); # This is the value in cents
 	    $table->string('description', 128); # This is what the transaction repersent
