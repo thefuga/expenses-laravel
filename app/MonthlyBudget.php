@@ -8,22 +8,22 @@ class MonthlyBudget extends Model
 {
     public function user()
     {
-        return $this->belongsTo('User');
+        return $this->belongsTo(User::class);
     }
     
     public function transactions()
     {
-        return $this->hasMany('Transaction');
+        return $this->hasMany(Transaction::class);
     }
     
     public function expenses()
     {
-        return $this->hasMany('Transaction')->expenses();
+        return $this->hasMany(Transaction::class)->expenses();
     }
     
     public function incomings()
     {
-        return $this->hasMany('Transaction')->incomings();
+        return $this->hasMany(Transaction::class)->incomings();
     }
     
     public function actualIncomings()

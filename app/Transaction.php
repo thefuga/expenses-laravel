@@ -8,7 +8,7 @@ class Transaction extends Model
 {
     public function monthlyBudget()
     {
-	return $this->belongsTo('MonthlyBudget');
+	return $this->belongsTo(MonthlyBudget::class);
     } 
 
     public function scopeExpenses($query)
