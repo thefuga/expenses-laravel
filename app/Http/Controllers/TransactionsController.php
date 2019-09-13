@@ -84,4 +84,18 @@ class TransactionsController extends Controller
     {
         //
     }
+
+    private function validateTransactionParams(Request $request)
+    {
+	request()->validate([
+	    'type' => ['required', 'max:32'],
+	    'date' => ['required', 'date'],
+	    'ammount' => 'required',
+	    'description' => ['required', 'max:128'], 
+	    'category' => ['required', 'max:32'],
+	    'channel' => ['required', 'max:32'],
+	    'status' => ['nullable', 'max:16'],
+	    'monthly_budget_id' => 'required'
+	]);
+    }
 }
