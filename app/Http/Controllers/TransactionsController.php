@@ -35,7 +35,9 @@ class TransactionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+	Transaction::create(validateTransactionParams($request));
+
+	return (view('transaction'));
     }
 
     /**
