@@ -54,6 +54,6 @@ class MonthlyBudget extends Model
     
     public function ammountSaved()
     {
-        return endBalance() - starting_balance;
+        return $this->endBalance() - $this->start_balance;
     }
 }
