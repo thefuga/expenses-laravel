@@ -18,4 +18,4 @@ Route::get('/', function () {
 Route::resource('users', 'UsersController');
 Route::resource('transactions', 'TransactionsController');
 Route::resource('wallets', 'WalletsController');
-Route::resource('montly_budgets', 'MonthlyBudgetsController');
+Route::resource('monthly_budgets', 'MonthlyBudgetsController');
