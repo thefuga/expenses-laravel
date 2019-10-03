@@ -46,7 +46,7 @@ class MonthlyBudgetsController extends Controller
      */
     public function show(MonthlyBudget $monthlyBudget)
     {
-        //
+	return view('monthly_budget', ["monthlyBudget" => $monthlyBudget]); 
     }
 
     /**
