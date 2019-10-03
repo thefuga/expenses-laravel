@@ -19,4 +19,3 @@ class User extends Authenticatable
     }
 }
 
-:q
