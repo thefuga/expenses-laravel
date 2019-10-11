@@ -35,7 +35,7 @@ class TransactionsController extends Controller
      */
     public function store(Request $request)
     {
-	Transaction::create(validateTransactionParams($request));
+	Transaction::create($this->validateTransactionParams($request));
 
 	return (view('transaction'));
     }
@@ -87,7 +87,7 @@ class TransactionsController extends Controller
 
     private function validateTransactionParams(Request $request)
     {
-	request()->validate([
+	$request()->validate([
 	    'type' => ['required', 'max:32'],
 	    'date' => ['required', 'date'],
 	    'ammount' => 'required',
