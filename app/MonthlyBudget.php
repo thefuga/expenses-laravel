@@ -10,7 +10,7 @@ class MonthlyBudget extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
+
     public function transactions()
     {
         return $this->hasMany(Transaction::class);
@@ -28,17 +28,17 @@ class MonthlyBudget extends Model
     
     public function actualIncomings()
     {
-        return $this->incomings->sum('ammount');
+        return $this->incomings()->sum('ammount');
     }
     
     public function actualExpenses()
     {
-        return $this->expenses->sum('ammount');
+        return $this->expenses()->sum('ammount');
     }
     
     public function diffIncomings()
     {
-        return $this->expected_incomings - $this->actualIncomings();
+	return ($this->expected_incomings - $this->actualIncomings());
     }
     
     public function diffExpenses()
@@ -48,12 +48,12 @@ class MonthlyBudget extends Model
     
     public function endBalance()
     {
-        return ($this->starting_balance + $this->incomings->sum('ammount')) - 
-        	$this->expenses->sum('ammount');
+        return ($this->starting_balance + $this->actualIncomings()) - 
+        	$this->actualExpenses();
     }
     
     public function ammountSaved()
     {
-        return $this->endBalance() - $this->start_balance;
+        return $this->endBalance() + $this->starting_balance;
     }
 }
